@@ -16,10 +16,8 @@ echo "Updated the system"
 source scripts/flathub.sh
 echo "Finished calling the script to enable Flathub"
 
-# Call the script to set basic networking choices (not finished)
-# source scripts/network.sh
-# echo "Finished calling the script to set basic networking choices"
-
+# dnf-plugins-core
+dnf -y install dnf-plugins-core
 
 # SOFTWARE
 # Call the scripts to install common free software
