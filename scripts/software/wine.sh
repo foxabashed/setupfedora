@@ -1,17 +1,13 @@
 #!/bin/bash
 
-# Install Wine
-function install_wine_package {
-	install_package "Wine" "wine" install_wine
-}
+# Prerequisite
+dnf clean all
+dnf update
 
-# Install Winetricks
-function install_winetricks {
-	install_package "Winetricks" "winetricks" install_wine
-}
+# Repositories
+rpm --import https://dl.winehq.org/wine-builds/winehq.key
+source /etc/os-release
+dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/${VERSION_ID}/winehq.repo
 
-# Install all fonts with winetricks
-function winetricks_allfonts {
-	# Install all fonts
-	winetricks allfonts
-}
+# WineHQ
+dnf install winehq-stable
